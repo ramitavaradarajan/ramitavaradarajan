@@ -1,4 +1,4 @@
-# 👋 Hi, I'm [Your Name]
+# 👋 Hi, I'm Ramita Varadarajan
 
 <div align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=AI%2FML+Engineer;Security+Researcher;LLM+%26+GenAI+Specialist;Red+Team+Enthusiast;Open+Source+Contributor" alt="Typing SVG" />
@@ -16,8 +16,8 @@
 ```python
 class AISecurityEngineer:
     def __init__(self):
-        self.name = "Your Name"
-        self.role = "AI/ML Engineer & Security Researcher"
+        self.name = "Ramita V"
+        self.role = "AI/ML Engineer"
         self.location = "India"
         self.education = "Recent Graduate"
         self.experience = "8 Months Internship"
@@ -45,7 +45,7 @@ me = AISecurityEngineer()
 ## 💼 Current Status
 
 🎯 **Position:** Open to Opportunities | AI/ML Specialist  
-🔬 **Internship:** 8 Months in AI Security & LLM Development  
+🔬 **Internship:** 8 Months in AI Security & LLM Development [Data Scientist]
 🌱 **Learning:** Adversarial Robustness & Automated Red Teaming  
 💡 **Building:** LLM Security Scanner, AI Agent Framework, Jailbreak Detection System  
 📝 **Writing:** Technical articles on [Medium](https://medium.com/@ramitavaradarajan2004)
