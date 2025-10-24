@@ -197,7 +197,7 @@ Implementing Model Context Protocol for secure multi-agent AI systems
 ## 🤝 Let's Connect
 
 <p align="center">
-  <a href="https://linkedin.com/in/ramita-varadarajan">
+  <a href="https://www.linkedin.com/in/ramita-varadarajan-b4a539245/>
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
   <a href="https://medium.com/@ramitavaradarajan2004">
@@ -209,23 +209,18 @@ Implementing Model Context Protocol for secure multi-agent AI systems
 </p>
 
 ---
-
 ## 🌟 Featured Repositories
 
-<!-- 
-TO ADD YOUR FEATURED REPOSITORIES:
-Replace "ramitavaradarajan" and "your-repo-name" with your actual repository names below.
-Example: If your repo is called "AI-Security-Scanner", replace "your-repo-name-1" with "AI-Security-Scanner"
--->
-
 <p align="center">
-  <a href="https://github.com/ramitavaradarajan/your-repo-name-1">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ramitavaradarajan&repo=your-repo-name-1&theme=radical&hide_border=true&bg_color=0D1117" alt="Project 1" />
+  <a href="https://github.com/ramitavaradarajan/keylogger-and-anti-keylogger">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ramitavaradarajan&repo=keylogger-and-anti-keylogger&theme=radical&hide_border=true&bg_color=0D1117" alt="Keylogger and Anti-Keylogger" />
   </a>
-  <a href="https://github.com/ramitavaradarajan/your-repo-name-2">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ramitavaradarajan&repo=your-repo-name-2&theme=radical&hide_border=true&bg_color=0D1117" alt="Project 2" />
+  <a href="https://github.com/ramitavaradarajan/Heart-Disease-Prediction-using-ML">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ramitavaradarajan&repo=Heart-Disease-Prediction-using-ML&theme=radical&hide_border=true&bg_color=0D1117" alt="Heart Disease Prediction using ML" />
   </a>
 </p>
+
+
 
 ---
 
