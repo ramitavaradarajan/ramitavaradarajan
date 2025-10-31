@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - IT Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #3b82f6;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --card-bg: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero .title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 1rem auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* Skills Section */
+        #skills {
+            background: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .skill-tag {
+            background: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--dark);
+            border: 2px solid var(--primary);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary);
+        }
+
+        .timeline-item {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 2rem;
+            width: 15px;
+            height: 15px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid var(--light);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .timeline-item h4 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item ul {
+            margin-left: 1.5rem;
+            color: var(--gray);
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Projects Section */
+        #projects {
+            background: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-card h3 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-issuer {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Leadership & Achievements */
+        #leadership {
+            background: white;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .achievement-card:hover {
+            transform: translateX(10px);
+        }
+
+        .achievement-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .achievement-content h3 {
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .achievement-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Blogs Section */
+        .blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-content h3 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-excerpt {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .blog-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .blog-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .btn-submit {
+            background: var(--primary);
+            color: white;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .contact-info h3 {
+            color: var(--dark);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .back-to-top:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 50px auto;
+            padding: 3rem;
+            border-radius: 15px;
+            max-width: 800px;
+            position: relative;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--gray);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--dark);
+        }
+
+        #modalBody h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        #modalBody h3 {
+            color: var(--dark);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        #modalBody p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        #modalBody ul {
+            color: var(--gray);
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        #modalBody li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        #modalBody strong {
+            color: var(--dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">YourName</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#blogs">Blogs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Name Here</h1>
+            <div class="title">Software Developer | Tech Enthusiast</div>
+            <p>Building innovative solutions with modern technologies</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">YN</div>
+                <div class="about-text">
+                    <p>Hello! I'm a passionate IT professional with a strong foundation in software development and technology. I specialize in building robust applications and solving complex problems through code.</p>
+                    <p>With hands-on experience from multiple internships and a portfolio of exciting projects, I'm constantly exploring new technologies and pushing the boundaries of what's possible in the digital world.</p>
+                    <p>When I'm not coding, you can find me writing technical articles on Medium, leading tech communities, or learning about the latest trends in artificial intelligence and cloud computing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">TypeScript</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks & Libraries</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">Flask</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Redis</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">REST APIs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Company Name 1</h3>
+                    <h4>Software Development Intern</h4>
+                    <div class="timeline-date">June 2024 - August 2024</div>
+                    <ul>
+                        <li>Developed and maintained web applications using React and Node.js</li>
+                        <li>Collaborated with cross-functional teams to deliver high-quality software</li>
+                        <li>Implemented RESTful APIs and integrated third-party services</li>
+                        <li>Participated in code reviews and adopted best practices</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>Company Name 2</h3>
+                    <h4>Tech Intern</h4>
+                    <div class="timeline-date">January 2024 - May 2024</div>
+                    <ul>
+                        <li>Built responsive user interfaces with modern JavaScript frameworks</li>
+                        <li>Optimized database queries resulting in 30% performance improvement</li>
+                        <li>Assisted in debugging and resolving production issues</li>
+                        <li>Contributed to documentation and technical specifications</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">🚀</div>
+                    <div class="project-content">
+                        <h3>Project Name 1</h3>
+                        <p>A full-stack web application that helps users manage their tasks efficiently with real-time updates and collaborative features.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">GitHub →</a>
+                            <a href="#">Live Demo →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">💡</div>
+                    <div class="project-content">
+                        <h3>Project Name 2</h3>
+                        <p>Machine learning model that predicts trends with 85% accuracy, deployed with Flask and integrated with interactive dashboards.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">TensorFlow</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">GitHub →</a>
+                            <a href="#">Live Demo →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🎯</div>
+                    <div class="project-content">
+                        <h3>Project Name 3</h3>
+                        <p>Mobile-first e-commerce platform with payment integration, inventory management, and admin dashboard.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">GitHub →</a>
+                            <a href="#">Live Demo →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <h3>AWS Certified Solutions Architect</h3>
+                    <div class="cert-issuer">Amazon Web Services</div>
+                    <div class="cert-date">Issued: September 2024</div>
+                </div>
+                <div class="cert-card">
+                    <h3>Python for Data Science</h3>
+                    <div class="cert-issuer">IBM</div>
+                    <div class="cert-date">Issued: July 2024</div>
+                </div>
+                <div class="cert-card">
+                    <h3>Full Stack Web Development</h3>
+                    <div class="cert-issuer">Coursera</div>
+                    <div class="cert-date">Issued: May 2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Achievements -->
+    <section id="leadership">
+        <div class="container">
+            <h2 class="section-title">Leadership & Achievements</h2>
+            <div class="leadership-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">👨‍💼</div>
+                    <div class="achievement-content">
+                        <h3>Tech Club President</h3>
+                        <p>Led a team of 50+ members organizing hackathons and workshops</p>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🏆</div>
+                    <div class="achievement-content">
+                        <h3>Hackathon Winner</h3>
+                        <p>First place at National Tech Fest 2024 for innovative AI solution</p>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">⭐</div>
+                    <div class="achievement-content">
+                        <h3>Open Source Contributor</h3>
+                        <p>Contributed to 10+ open source projects with 100+ stars</p>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🎓</div>
+                    <div class="achievement-content">
+                        <h3>Dean's List</h3>
+                        <p>Awarded for academic excellence with GPA above 3.8</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Your University Name</h3>
+                    <h4>Bachelor of Technology in Computer Science</h4>
+                    <div class="timeline-date">2021 - 2025 (Expected)</div>
+                    <ul>
+                        <li>GPA: 3.8/4.0</li>
+                        <li>Relevant Coursework: Data Structures, Algorithms, Database Management, Web Development, Machine Learning</li>
+                        <li>Member of Computer Science Society and Coding Club</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blogs Section -->
+    <section id="blogs">
+        <div class="container">
+            <h2 class="section-title">Medium Blogs</h2>
+            <div class="blogs-grid">
+                <div class="blog-card">
+                    <div class="blog-image">📝</div>
+                    <div class="blog-content">
+                        <h3>Understanding React Hooks in Depth</h3>
+                        <div class="blog-excerpt">A comprehensive guide to mastering React Hooks with practical examples and best practices for modern web development.</div>
+                        <div class="blog-meta">
+                            <span>Oct 15, 2024</span>
+                            <a href="#" class="blog-link">Read on Medium →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">💻</div>
+                    <div class="blog-content">
+                        <h3>Building Scalable APIs with Node.js</h3>
+                        <div class="blog-excerpt">Learn how to design and implement RESTful APIs that can handle millions of requests efficiently.</div>
+                        <div class="blog-meta">
+                            <span>Sept 28, 2024</span>
+                            <a href="#" class="blog-link">Read on Medium →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">🤖</div>
+                    <div class="blog-content">
+                        <h3>Getting Started with Machine Learning</h3>
+                        <div class="blog-excerpt">A beginner-friendly introduction to ML concepts, algorithms, and practical implementation using Python.</div>
+                        <div class="blog-meta">
+                            <span>Sept 10, 2024</span>
+                            <a href="#" class="blog-link">Read on Medium →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Email</label>
+                            <input type="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea placeholder="Your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Let's Connect!</h3>
+                    <p style="color: var(--gray); margin-bottom: 2rem;">Feel free to reach out for collaborations, opportunities, or just a friendly chat about technology!</p>
+                    <div class="social-links">
+                        <a href="mailto:your.email@example.com" class="social-link">
+                            <div class="social-icon">✉️</div>
+                            <span>your.email@example.com</span>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank">
+                            <div class="social-icon">💼</div>
+                            <span>LinkedIn Profile</span>
+                        </a>
+                        <a href="https://github.com/yourusername" class="social-link" target="_blank">
+                            <div class="social-icon">💻</div>
+                            <span>GitHub Profile</span>
+                        </a>
+                        <a href="https://medium.com/@yourusername" class="social-link" target="_blank">
+                            <div class="social-icon">📝</div>
+                            <span>Medium Blog</span>
+                        </a>
+                        <a href="https://twitter.com/yourusername" class="social-link" target="_blank">
+                            <div class="social-icon">🐦</div>
+                            <span>Twitter Profile</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Name. All rights reserved.</p>
+            <p>Built with ❤️ using HTML, CSS & JavaScript</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <!-- Modals for Details -->
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('detailModal');
+        const modalBody = document.getElementById('modalBody');
+        const closeModal = document.querySelector('.modal-close');
+
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Project details data
+        const projectDetails = {
+            0: {
+                title: 'Project Name 1',
+                description: 'A full-stack web application that helps users manage their tasks efficiently with real-time updates and collaborative features.',
+                fullDescription: `
+                    <h2>Full Project Description</h2>
+                    <p>This is a comprehensive task management application built with modern web technologies. The application allows users to create, update, and delete tasks in real-time with seamless synchronization across devices.</p>
+                    
+                    <h3>Key Features:</h3>
+                    <ul>
+                        <li>Real-time task synchronization using WebSockets</li>
+                        <li>Collaborative features allowing team members to work together</li>
+                        <li>Drag-and-drop interface for task organization</li>
+                        <li>Priority-based task sorting and filtering</li>
+                        <li>Email notifications for important deadlines</li>
+                        <li>Mobile-responsive design</li>
+                    </ul>
+                    
+                    <h3>Technologies Used:</h3>
+                    <ul>
+                        <li><strong>Frontend:</strong> React.js with Redux for state management</li>
+                        <li><strong>Backend:</strong> Node.js with Express.js framework</li>
+                        <li><strong>Database:</strong> MongoDB for flexible data storage</li>
+                        <li><strong>Real-time:</strong> Socket.io for WebSocket connections</li>
+                        <li><strong>Authentication:</strong> JWT tokens with bcrypt encryption</li>
+                    </ul>
+                    
+                    <h3>Challenges & Solutions:</h3>
+                    <p>One major challenge was implementing real-time synchronization without performance issues. I solved this by implementing efficient data caching and optimizing database queries.</p>
+                    
+                    <h3>Outcome:</h3>
+                    <p>Successfully deployed and used by 100+ users with 99.9% uptime. Received positive feedback for the intuitive UI and smooth performance.</p>
+                `,
+                github: 'https://github.com/yourusername/project1',
+                demo: '#'
+            },
+            1: {
+                title: 'Project Name 2',
+                description: 'Machine learning model that predicts trends with 85% accuracy.',
+                fullDescription: `
+                    <h2>Machine Learning Project Details</h2>
+                    <p>This project implements a predictive analytics system using advanced machine learning algorithms to forecast market trends with high accuracy.</p>
+                    
+                    <h3>Project Overview:</h3>
+                    <ul>
+                        <li>Collected and preprocessed data from multiple sources</li>
+                        <li>Trained multiple ML models and compared performance</li>
+                        <li>Achieved 85% accuracy using ensemble methods</li>
+                        <li>Deployed with Flask REST API for easy integration</li>
+                        <li>Created interactive dashboards for visualization</li>
+                    </ul>
+                    
+                    <h3>Technical Stack:</h3>
+                    <ul>
+                        <li><strong>ML Libraries:</strong> TensorFlow, Scikit-learn, Pandas, NumPy</li>
+                        <li><strong>Backend:</strong> Flask with RESTful API design</li>
+                        <li><strong>Visualization:</strong> Plotly and Matplotlib</li>
+                        <li><strong>Deployment:</strong> Docker containers on AWS</li>
+                    </ul>
+                    
+                    <h3>Model Performance:</h3>
+                    <p>After testing various algorithms including Random Forest, XGBoost, and Neural Networks, the ensemble approach yielded the best results with 85% accuracy and low false positive rate.</p>
+                `,
+                github: 'https://github.com/yourusername/project2',
+                demo: '#'
+            },
+            2: {
+                title: 'Project Name 3',
+                description: 'Mobile-first e-commerce platform with payment integration.',
+                fullDescription: `
+                    <h2>E-Commerce Platform Details</h2>
+                    <p>A complete e-commerce solution with modern features including payment processing, inventory management, and an admin dashboard.</p>
+                    
+                    <h3>Features Implemented:</h3>
+                    <ul>
+                        <li>User authentication and authorization system</li>
+                        <li>Product catalog with search and filtering</li>
+                        <li>Shopping cart and wishlist functionality</li>
+                        <li>Secure payment integration (Stripe/PayPal)</li>
+                        <li>Order tracking and management</li>
+                        <li>Admin dashboard for inventory control</li>
+                        <li>Email notifications for orders</li>
+                        <li>Mobile-responsive design</li>
+                    </ul>
+                    
+                    <h3>Architecture:</h3>
+                    <ul>
+                        <li><strong>Frontend:</strong> React with Material-UI components</li>
+                        <li><strong>Backend:</strong> Express.js with MVC architecture</li>
+                        <li><strong>Database:</strong> PostgreSQL for relational data</li>
+                        <li><strong>Payment:</strong> Stripe API integration</li>
+                        <li><strong>Storage:</strong> AWS S3 for product images</li>
+                    </ul>
+                    
+                    <h3>Security Measures:</h3>
+                    <p>Implemented HTTPS, input validation, SQL injection prevention, XSS protection, and secure payment handling following PCI compliance standards.</p>
+                `,
+                github: 'https://github.com/yourusername/project3',
+                demo: '#'
+            }
+        };
+
+        // Experience details data
+        const experienceDetails = {
+            0: {
+                company: 'Company Name 1',
+                role: 'Software Development Intern',
+                duration: 'June 2024 - August 2024',
+                fullDescription: `
+                    <h2>Software Development Internship</h2>
+                    <h3>Company: Company Name 1</h3>
+                    <p><strong>Duration:</strong> June 2024 - August 2024 (3 months)</p>
+                    
+                    <h3>About the Company:</h3>
+                    <p>A leading tech company specializing in enterprise software solutions serving Fortune 500 clients.</p>
+                    
+                    <h3>My Responsibilities:</h3>
+                    <ul>
+                        <li>Developed and maintained web applications using React and Node.js</li>
+                        <li>Collaborated with cross-functional teams including designers, product managers, and senior developers</li>
+                        <li>Implemented RESTful APIs and integrated third-party services like payment gateways</li>
+                        <li>Participated in code reviews and learned industry best practices</li>
+                        <li>Fixed bugs and improved application performance by 25%</li>
+                        <li>Wrote comprehensive unit tests achieving 80% code coverage</li>
+                    </ul>
+                    
+                    <h3>Key Projects:</h3>
+                    <ul>
+                        <li><strong>Customer Dashboard:</strong> Built a real-time analytics dashboard used by 1000+ clients</li>
+                        <li><strong>API Integration:</strong> Integrated payment processing system reducing transaction time by 40%</li>
+                        <li><strong>Mobile App:</strong> Contributed to mobile application development using React Native</li>
+                    </ul>
+                    
+                    <h3>Technologies Used:</h3>
+                    <p>React.js, Node.js, Express, MongoDB, Git, Docker, AWS, Jest, Redux</p>
+                    
+                    <h3>Skills Gained:</h3>
+                    <ul>
+                        <li>Full-stack development in production environment</li>
+                        <li>Agile methodology and sprint planning</li>
+                        <li>Code review and collaboration skills</li>
+                        <li>Cloud deployment and DevOps basics</li>
+                    </ul>
+                    
+                    <h3>Impact:</h3>
+                    <p>My contributions helped improve application performance and received appreciation from the team lead for quick learning and quality code delivery.</p>
+                `
+            },
+            1: {
+                company: 'Company Name 2',
+                role: 'Tech Intern',
+                duration: 'January 2024 - May 2024',
+                fullDescription: `
+                    <h2>Tech Internship Experience</h2>
+                    <h3>Company: Company Name 2</h3>
+                    <p><strong>Duration:</strong> January 2024 - May 2024 (5 months)</p>
+                    
+                    <h3>Company Background:</h3>
+                    <p>An innovative startup in the fintech space focused on digital payment solutions.</p>
+                    
+                    <h3>Role & Responsibilities:</h3>
+                    <ul>
+                        <li>Built responsive user interfaces with modern JavaScript frameworks</li>
+                        <li>Optimized database queries resulting in 30% performance improvement</li>
+                        <li>Assisted in debugging and resolving production issues quickly</li>
+                        <li>Contributed to technical documentation and API specifications</li>
+                        <li>Implemented security features including encryption and authentication</li>
+                        <li>Worked on mobile-responsive design for better user experience</li>
+                    </ul>
+                    
+                    <h3>Major Contributions:</h3>
+                    <ul>
+                        <li><strong>Database Optimization:</strong> Reduced query response time from 2s to 0.6s</li>
+                        <li><strong>UI Redesign:</strong> Improved user interface leading to 40% increase in user engagement</li>
+                        <li><strong>Bug Fixes:</strong> Resolved 50+ critical bugs in production</li>
+                    </ul>
+                    
+                    <h3>Tech Stack:</h3>
+                    <p>Vue.js, Python, Django, PostgreSQL, Redis, Docker, Git, AWS EC2</p>
+                    
+                    <h3>Learning Outcomes:</h3>
+                    <ul>
+                        <li>Frontend optimization techniques</li>
+                        <li>Database indexing and query optimization</li>
+                        <li>Working in fast-paced startup environment</li>
+                        <li>Direct client interaction and requirement gathering</li>
+                    </ul>
+                    
+                    <h3>Achievement:</h3>
+                    <p>Received "Star Intern" award for exceptional performance and dedication. Offered a return offer for full-time position after graduation.</p>
+                `
+            }
+        };
+
+        // Leadership & Achievement details
+        const achievementDetails = {
+            0: {
+                title: 'Tech Club President',
+                fullDescription: `
+                    <h2>Tech Club President</h2>
+                    <h3>Role Duration: January 2024 - Present</h3>
+                    
+                    <h3>About the Role:</h3>
+                    <p>Leading the university's largest technical club with over 50 active members, organizing events, workshops, and hackathons.</p>
+                    
+                    <h3>Key Responsibilities:</h3>
+                    <ul>
+                        <li>Managing a team of 10 core committee members</li>
+                        <li>Organizing technical workshops and seminars</li>
+                        <li>Coordinating with industry professionals for guest lectures</li>
+                        <li>Managing club budget and sponsorships</li>
+                        <li>Mentoring junior members in technical skills</li>
+                    </ul>
+                    
+                    <h3>Major Events Organized:</h3>
+                    <ul>
+                        <li><strong>TechFest 2024:</strong> 3-day technical festival with 500+ participants</li>
+                        <li><strong>Hackathon Series:</strong> Monthly hackathons with prizes worth $5000</li>
+                        <li><strong>Workshop Series:</strong> Conducted 15+ workshops on web development, ML, and cloud computing</li>
+                        <li><strong>Industry Talks:</strong> Invited speakers from Google, Microsoft, Amazon</li>
+                    </ul>
+                    
+                    <h3>Impact:</h3>
+                    <ul>
+                        <li>Increased club membership by 200%</li>
+                        <li>Secured sponsorships worth $10,000</li>
+                        <li>Placed 15+ members in internships through networking</li>
+                        <li>Built strong industry connections for the university</li>
+                    </ul>
+                    
+                    <h3>Skills Developed:</h3>
+                    <p>Leadership, Team Management, Event Planning, Public Speaking, Negotiation, Networking</p>
+                `
+            },
+            1: {
+                title: 'Hackathon Winner',
+                fullDescription: `
+                    <h2>National Tech Fest 2024 - First Place</h2>
+                    <h3>Achievement Date: March 2024</h3>
+                    
+                    <h3>Event Details:</h3>
+                    <p>National-level hackathon with 200+ teams from top universities across the country. 36-hour intensive coding competition.</p>
+                    
+                    <h3>Our Solution:</h3>
+                    <p><strong>Project:</strong> AI-Powered Healthcare Assistant</p>
+                    <p>Developed an innovative AI chatbot that helps patients with preliminary diagnosis, appointment scheduling, and medication reminders.</p>
+                    
+                    <h3>Technical Implementation:</h3>
+                    <ul>
+                        <li>Natural Language Processing using GPT-based models</li>
+                        <li>Machine Learning for symptom analysis</li>
+                        <li>Real-time chat interface with React</li>
+                        <li>Backend API with Python Flask</li>
+                        <li>Integration with hospital management systems</li>
+                    </ul>
+                    
+                    <h3>Team Contribution:</h3>
+                    <ul>
+                        <li>Led the team of 4 members</li>
+                        <li>Designed the system architecture</li>
+                        <li>Implemented AI/ML components</li>
+                        <li>Presented the solution to judges</li>
+                    </ul>
+                    
+                    <h3>Recognition:</h3>
+                    <ul>
+                        <li>Won first prize of $2000</li>
+                        <li>Featured in university newsletter</li>
+                        <li>Received mentorship opportunity from industry experts</li>
+                        <li>Solution is being considered for real-world implementation</li>
+                    </ul>
+                    
+                    <h3>Impact:</h3>
+                    <p>The project has potential to help thousands of patients with quick medical guidance and improve healthcare accessibility in remote areas.</p>
+                `
+            },
+            2: {
+                title: 'Open Source Contributor',
+                fullDescription: `
+                    <h2>Open Source Contributions</h2>
+                    <h3>Active Since: 2023</h3>
+                    
+                    <h3>Contribution Overview:</h3>
+                    <p>Active contributor to various open-source projects on GitHub, helping improve software used by developers worldwide.</p>
+                    
+                    <h3>Major Contributions:</h3>
+                    <ul>
+                        <li><strong>React Library (5k+ stars):</strong> Fixed critical bugs and improved documentation</li>
+                        <li><strong>Python Framework (3k+ stars):</strong> Added new features and wrote unit tests</li>
+                        <li><strong>Developer Tools (2k+ stars):</strong> Improved CLI performance by 50%</li>
+                        <li><strong>Documentation Projects:</strong> Rewrote tutorials making them beginner-friendly</li>
+                    </ul>
+                    
+                    <h3>Statistics:</h3>
+                    <ul>
+                        <li>100+ Pull Requests merged</li>
+                        <li>50+ Issues resolved</li>
+                        <li>10+ Projects contributed to</li>
+                        <li>Repositories with combined 10,000+ stars</li>
+                        <li>Code used by 100,000+ developers</li>
+                    </ul>
+                    
+                    <h3>Notable PRs:</h3>
+                    <ul>
+                        <li>Performance optimization reducing load time by 40%</li>
+                        <li>Security vulnerability patch in authentication module</li>
+                        <li>Feature addition that got 50+ upvotes from community</li>
+                        <li>Complete test suite for a module with 95% coverage</li>
+                    </ul>
+                    
+                    <h3>Community Impact:</h3>
+                    <ul>
+                        <li>Helped 200+ developers through issue discussions</li>
+                        <li>Mentored new contributors</li>
+                        <li>Improved documentation helping thousands of users</li>
+                        <li>Recognized as "Valuable Contributor" by project maintainers</li>
+                    </ul>
+                    
+                    <h3>Skills Gained:</h3>
+                    <p>Code review, collaboration, technical writing, software architecture, version control best practices, and working with global teams.</p>
+                `
+            },
+            3: {
+                title: 'Dean\'s List',
+                fullDescription: `
+                    <h2>Dean's List - Academic Excellence</h2>
+                    <h3>Academic Year: 2023-2024</h3>
+                    
+                    <h3>Achievement Details:</h3>
+                    <p>Awarded Dean's List honor for outstanding academic performance with GPA above 3.8/4.0, placing in top 5% of the class.</p>
+                    
+                    <h3>Academic Performance:</h3>
+                    <ul>
+                        <li><strong>Overall GPA:</strong> 3.85/4.0</li>
+                        <li><strong>Major GPA:</strong> 3.92/4.0</li>
+                        <li><strong>Class Rank:</strong> Top 5%</li>
+                        <li><strong>Perfect scores</strong> in Data Structures, Algorithms, and Database Management</li>
+                    </ul>
+                    
+                    <h3>Key Coursework:</h3>
+                    <ul>
+                        <li>Advanced Algorithms - A+</li>
+                        <li>Machine Learning - A+</li>
+                        <li>Database Management Systems - A+</li>
+                        <li>Software Engineering - A</li>
+                        <li>Computer Networks - A</li>
+                        <li>Operating Systems - A</li>
+                    </ul>
+                    
+                    <h3>Academic Projects:</h3>
+                    <ul>
+                        <li>Implemented advanced sorting algorithms with complexity analysis</li>
+                        <li>Built a complete DBMS with query optimizer</li>
+                        <li>Developed ML models achieving 92% accuracy</li>
+                        <li>Created full-stack application as capstone project</li>
+                    </ul>
+                    
+                    <h3>Recognition:</h3>
+                    <ul>
+                        <li>Certificate of Academic Excellence</li>
+                        <li>Featured on university honor roll</li>
+                        <li>Invited to prestigious research programs</li>
+                        <li>Scholarship extension based on performance</li>
+                    </ul>
+                    
+                    <h3>Beyond Academics:</h3>
+                    <p>Balanced academic excellence with extracurricular activities, leadership roles, and internships, demonstrating strong time management and dedication.</p>
+                `
+            }
+        };
+
+        // Add click listeners to all cards
+        document.querySelectorAll('.project-card').forEach((card, index) => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function(e) {
+                // Don't trigger if clicking on a link
+                if (e.target.tagName === 'A') return;
+                
+                showModal(projectDetails[index].fullDescription);
+            });
+        });
+
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', function() {
+                showModal(experienceDetails[index].fullDescription);
+            });
+        });
+
+        document.querySelectorAll('.achievement-card').forEach((card, index) => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function() {
+                showModal(achievementDetails[index].fullDescription);
+            });
+        });
+
+        function showModal(content) {
+            modalBody.innerHTML = content;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
