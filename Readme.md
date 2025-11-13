@@ -41,12 +41,11 @@ me = AISecurityEngineer()
 ```
 
 ---
----
 
 ## 🌐 View My Portfolio
 
 <p align="center">
-  <a href="YOUR_PORTFOLIO_URL_HERE">
+  <a href="https://ramitavaradarajan.vercel.app/">
     <img src="https://img.shields.io/badge/🚀_View_Portfolio-00D9FF?style=for-the-badge&logoColor=white" alt="View Portfolio" />
   </a>
 </p>
