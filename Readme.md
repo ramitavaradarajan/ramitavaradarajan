@@ -41,6 +41,21 @@ me = AISecurityEngineer()
 ```
 
 ---
+---
+
+## 🌐 View My Portfolio
+
+<p align="center">
+  <a href="YOUR_PORTFOLIO_URL_HERE">
+    <img src="https://img.shields.io/badge/🚀_View_Portfolio-00D9FF?style=for-the-badge&logoColor=white" alt="View Portfolio" />
+  </a>
+</p>
+
+<p align="center">
+  <i>Explore my projects, case studies, and technical articles in one place!</i>
+</p>
+
+---
 
 ## 💼 Current Status
 
